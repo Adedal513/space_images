@@ -5,6 +5,7 @@ from urllib.parse import urlsplit, unquote, urlencode
 from os.path import split, splitext
 from dotenv import load_dotenv
 from datetime import datetime
+import telegram
 
 
 spacex_api_url = "https://api.spacexdata.com/v4/launches/"
@@ -95,3 +96,12 @@ if __name__ == "__main__":
 
     load_dotenv()
     nasa_api_key = getenv("NASA_API_KEY")
+    telegram_bot_token = getenv("TELEGRAM_BOT_TOKEN")
+    chat_id = getenv("CHAT_ID")
+    
+    bot = telegram.Bot(token=telegram_bot_token)
+
+    bot.send_message(
+        chat_id=chat_id,
+        text="Hello, world!"
+    )
