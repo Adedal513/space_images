@@ -98,10 +98,11 @@ if __name__ == "__main__":
     nasa_api_key = getenv("NASA_API_KEY")
     telegram_bot_token = getenv("TELEGRAM_BOT_TOKEN")
     chat_id = getenv("CHAT_ID")
-    
+
     bot = telegram.Bot(token=telegram_bot_token)
 
-    bot.send_message(
-        chat_id=chat_id,
-        text="Hello, world!"
-    )
+    with open('./images/epic_1b_20220501021004.png', 'r') as file:
+        bot.send_photo(
+            chat_id=chat_id,
+            photo=file.buffer
+        )
