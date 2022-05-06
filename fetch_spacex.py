@@ -1,7 +1,8 @@
 from requests import get
 from images_tools import download_image_by_url
 
-spacex_api_url = "https://api.spacexdata.com/v4/launches/"
+
+SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/"
 
 
 def fetch_spacex_last_launch():
@@ -9,7 +10,7 @@ def fetch_spacex_last_launch():
     Скачивает последние доступные фотографии с запуска аппаратов SpaceX.
     Отдает предпочтение файлам малого размера.
     """
-    response = get(spacex_api_url)
+    response = get(SPACEX_API_URL)
     response.raise_for_status()
 
     launches = response.json()

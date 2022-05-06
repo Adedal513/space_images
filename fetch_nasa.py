@@ -4,8 +4,8 @@ from requests import get
 from urllib.parse import urlencode
 
 
-nasa_apod_api_url = "https://api.nasa.gov/planetary/apod"
-nasa_epic_api_url = "https://api.nasa.gov/EPIC/api/natural/images"
+NASA_APOD_API_URL = "https://api.nasa.gov/planetary/apod"
+NASA_EPIC_API_URL = "https://api.nasa.gov/EPIC/api/natural/images"
 
 
 def fetch_nasa_apod(api_key: str, number_of_photos=1):
@@ -17,7 +17,7 @@ def fetch_nasa_apod(api_key: str, number_of_photos=1):
     """
     params = {"count": number_of_photos, "api_key": api_key}
 
-    response = get(nasa_apod_api_url, params=params)
+    response = get(NASA_APOD_API_URL, params=params)
     response.raise_for_status()
 
     for image_data in response.json():
@@ -35,7 +35,7 @@ def fetch_nasa_epic(api_key: str, number_of_photos=1):
     """
     params = {"api_key": api_key}
 
-    response = get(nasa_epic_api_url, params=params)
+    response = get(NASA_EPIC_API_URL, params=params)
     response.raise_for_status()
 
     images_info = response.json()

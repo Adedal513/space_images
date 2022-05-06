@@ -12,12 +12,12 @@ from pathlib import Path
 from time import sleep
 
 
-image_directories = {
+IMAGE_DIRECTORIES = {
     'spacex': Path('./images/spacex_launches'),
     'apod': Path('./images/nasa_apod'),
     'epic': Path('./images/nasa_epic')
 }
-chat_id = '@space_bot_testing'
+CHAT_ID = '@space_bot_testing'
 
 
 def post_pictures_with_title(tg_bot: telegram.Bot, tg_chat_id: str, images_path: Path, text: str):
@@ -66,14 +66,14 @@ if __name__ == "__main__":
             'epic': f'Latest Earth photo from the orbit\n{today_date}'
         }
 
-        for category in image_directories.keys():
+        for category in IMAGE_DIRECTORIES.keys():
             post_pictures_with_title(
                 tg_bot=bot,
-                tg_chat_id=chat_id,
-                images_path=image_directories[category],
+                tg_chat_id=CHAT_ID,
+                images_path=IMAGE_DIRECTORIES[category],
                 text=captions[category]
             )
 
-        clear_image_directories(image_directories.values())
+        clear_image_directories(IMAGE_DIRECTORIES.values())
 
         sleep(posting_frequency)
