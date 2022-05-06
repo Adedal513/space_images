@@ -6,6 +6,7 @@ from urllib.parse import urlencode
 
 NASA_APOD_API_URL = "https://api.nasa.gov/planetary/apod"
 NASA_EPIC_API_URL = "https://api.nasa.gov/EPIC/api/natural/images"
+TARGET_DIRECTORY = './images/nasa_apod'
 
 
 def fetch_nasa_apod(api_key: str, number_of_photos=1):
@@ -23,7 +24,7 @@ def fetch_nasa_apod(api_key: str, number_of_photos=1):
     for image_data in response.json():
         image_url = image_data["url"]
 
-        download_image_by_url(target_directory='./images/nasa_apod', url=image_url)
+        download_image_by_url(target_directory=TARGET_DIRECTORY, url=image_url)
 
 
 def fetch_nasa_epic(api_key: str, number_of_photos=1):

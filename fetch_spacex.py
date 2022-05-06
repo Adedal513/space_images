@@ -2,8 +2,8 @@ from requests import get
 from images_tools import download_image_by_url
 
 
-SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/"
-
+SPACEX_API_URL = 'https://api.spacexdata.com/v4/launches/'
+TARGET_DIRECTORY = './images/spacex_launches'
 
 def fetch_spacex_last_launch():
     """
@@ -26,6 +26,6 @@ def fetch_spacex_last_launch():
                 launch_photos = links['original']
 
             for photo_link in launch_photos:
-                download_image_by_url(target_directory='./images/spacex_launches', url=photo_link)
+                download_image_by_url(target_directory=TARGET_DIRECTORY, url=photo_link)
 
             break
