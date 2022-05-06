@@ -3,8 +3,7 @@ from os.path import split
 from os.path import splitext
 from pathlib import Path
 from requests import get
-from urllib.parse import unquote
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 
 def get_image_name_and_extension(url: str) -> (str, str):

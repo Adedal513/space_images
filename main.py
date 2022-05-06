@@ -2,12 +2,10 @@ import telegram
 
 from datetime import datetime
 from dotenv import load_dotenv
-from fetch_nasa import fetch_nasa_apod
-from fetch_nasa import fetch_nasa_epic
+from fetch_nasa import fetch_nasa_apod, fetch_nasa_epic
 from fetch_spacex import fetch_spacex_last_launch
 from images_tools import clear_image_directories
-from os import getenv
-from os import listdir
+from os import getenv, listdir
 from pathlib import Path
 from time import sleep
 
