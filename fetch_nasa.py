@@ -41,8 +41,8 @@ def fetch_nasa_epic(api_key: str, number_of_photos=1):
 
     images_info = response.json()
 
-    for i in range(number_of_photos):
-        image_data = images_info[i]
+    for photo_num in range(number_of_photos):
+        image_data = images_info[photo_num]
 
         image_name = image_data['image']
         image_date = datetime.strptime(image_data['date'], "%Y-%m-%d %H:%M:%S")

@@ -15,7 +15,6 @@ IMAGE_DIRECTORIES = {
     'apod': Path('./images/nasa_apod'),
     'epic': Path('./images/nasa_epic')
 }
-CHAT_ID = '@space_bot_testing'
 
 
 def post_pictures_with_title(tg_bot: telegram.Bot, tg_chat_id: str, images_path: Path, text: str):
@@ -48,6 +47,7 @@ if __name__ == "__main__":
     nasa_api_key = getenv("NASA_API_KEY")
     telegram_bot_token = getenv("TELEGRAM_BOT_TOKEN")
     posting_frequency = int(getenv('IMAGE_POSTING_FREQUENCY'))
+    chat_id = getenv('CHAT_ID')
 
     bot = telegram.Bot(token=telegram_bot_token)
 
@@ -67,7 +67,7 @@ if __name__ == "__main__":
         for category in IMAGE_DIRECTORIES.keys():
             post_pictures_with_title(
                 tg_bot=bot,
-                tg_chat_id=CHAT_ID,
+                tg_chat_id=chat_id,
                 images_path=IMAGE_DIRECTORIES[category],
                 text=captions[category]
             )
