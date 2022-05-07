@@ -4,8 +4,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from fetch_nasa import fetch_nasa_apod, fetch_nasa_epic
 from fetch_spacex import fetch_spacex_last_launch
-from images_tools import clear_image_directories
-from os import getenv, listdir
+from os import getenv, listdir, remove
 from pathlib import Path
 from time import sleep
 
@@ -39,6 +38,17 @@ def post_pictures_with_title(tg_bot: telegram.Bot, tg_chat_id: str, images_path:
                 caption=caption_text,
                 photo=file.buffer
             )
+
+
+def clear_image_directories(image_directories: [Path]):
+    """
+    Удаляет все файлы в указанных директориях
+
+    :param image_directories: Список адресов папок, где необходимо очистить файлы
+    """
+    for folder in image_directories:
+        for image in folder.iterdir():
+            remove(image)
 
 
 if __name__ == "__main__":

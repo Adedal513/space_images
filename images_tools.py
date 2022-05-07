@@ -1,4 +1,3 @@
-from os import remove
 from os.path import split
 from os.path import splitext
 from pathlib import Path
@@ -39,14 +38,3 @@ def download_image_by_url(url: str, target_directory: str):
 
     with open(f'{target_directory}/{file_name}{file_extension}', "wb") as file:
         file.write(response.content)
-
-
-def clear_image_directories(image_directories: [Path]):
-    """
-    Удаляет все файлы в указанных директориях
-
-    :param image_directories: Список адресов папок, где необходимо очистить файлы
-    """
-    for folder in image_directories:
-        for image in folder.iterdir():
-            remove(image)
