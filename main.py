@@ -1,12 +1,13 @@
-import telegram
-
 from datetime import datetime
-from dotenv import load_dotenv
-from fetch_nasa import fetch_nasa_apod, fetch_nasa_epic
-from fetch_spacex import fetch_spacex_last_launch
 from os import getenv, listdir, remove
 from pathlib import Path
 from time import sleep
+
+import telegram
+from dotenv import load_dotenv
+
+from fetch_nasa import fetch_nasa_apod, fetch_nasa_epic
+from fetch_spacex import fetch_spacex_last_launch
 
 
 IMAGE_DIRECTORIES = {
