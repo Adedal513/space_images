@@ -1,7 +1,9 @@
 from datetime import datetime
+from os import getenv
 from images_tools import download_image_by_url
 from requests import get
 from urllib.parse import urlencode
+from dotenv import load_dotenv
 
 
 NASA_APOD_API_URL = "https://api.nasa.gov/planetary/apod"
@@ -53,3 +55,11 @@ def fetch_nasa_epic(api_key: str, number_of_photos=1):
         image_request_url = image_request_url + urlencode(params)
 
         download_image_by_url(target_directory='./images/nasa_epic', url=image_request_url)
+
+
+if __name__ == "__main__":
+    load_dotenv()
+    API_KEY = getenv("NASA_API_KEY")
+
+    fetch_nasa_epic(api_key=API_KEY)
+    fetch_nasa_apod(api_key=API_KEY)
