@@ -16,10 +16,9 @@ def get_image_name_and_extension(url: str) -> (str, str):
     image_path = urlsplit(unquoted_url).path
     image = split(image_path)[1]
 
-    image_name = splitext(image)[0]
-    image_extension = splitext(image)[1]
+    image_name_and_extension = splitext(image)
 
-    return image_name, image_extension
+    return image_name_and_extension
 
 
 def download_image_by_url(url: str, target_directory: str):
