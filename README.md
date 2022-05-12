@@ -20,11 +20,12 @@ Python3 должен быть уже установлен. Затем испол
 NASA_API_KEY=<api_ключ_NASA>
 TELEGRAM_BOT_TOKEN=<токен_бота>
 IMAGE_POSTING_FREQUENCY=86400
+CHAT_ID=@SpaceBotTesting
 ```
 
 `NASA_API_KEY` - ключ для Web API NASA\
 `TELEGRAM_BOT_TOKEN` - токен для доступа к HTTP API бота\
 `IMAGE_POSTING_FREQUENCY` - частота публикации фотографий **в секундах** (по умолчанию - раз в сутки)
-
+`CHAT_ID` - идентификатор канала в Telegram. (При желании, может быть изменен, однако заранее требуется добавить [бота](https://t.me/cosmos_images_bot) в качестве администратора канала.)
 ### Цель проекта
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](https://dvmn.org/).
