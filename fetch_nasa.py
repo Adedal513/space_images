@@ -57,7 +57,7 @@ def fetch_nasa_epic(api_key: str, number_of_photos=1):
 
 if __name__ == "__main__":
     load_dotenv()
-    API_KEY = getenv("NASA_API_KEY")
+    api_key = getenv("NASA_API_KEY")
 
-    fetch_nasa_epic(api_key=API_KEY)
-    fetch_nasa_apod(api_key=API_KEY)
+    fetch_nasa_epic(api_key=api_key)
+    fetch_nasa_apod(api_key=api_key)
